@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список банков</title>
+</head>
+<body>
+    <h1>Список банков</h1>
+    <a href="{% url 'bank-create' %}">Добавить новый банк</a>
+    <ul>
+        {% for bank in banks %}
+            <li>
+                <a href="{% url 'bank-detail' bank.pk %}">{{ bank.name }}</a> 
+                <a href="{% url 'bank-update' bank.pk %}">[Редактировать]</a>
+                <a href="{% url 'bank-delete' bank.pk %}">[Удалить]</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

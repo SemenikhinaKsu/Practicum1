@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали банка: {{ bank.name }}</title>
+</head>
+<body>
+    <h1>Детали банка: {{ bank.name }}</h1>
+    <p>Юридический адрес: {{ bank.legal_address }}</p>
+    <a href="{% url 'bank-update' bank.pk %}">Редактировать</a>
+    <form method="POST" action="{% url 'bank-delete' bank.pk %}">
+        {% csrf_token %}
+        <button type="submit">Удалить банк</button>
+    </form>
+    <a href="{% url 'bank-list' %}">Вернуться к списку банков</a>
+</body>
+</html>
